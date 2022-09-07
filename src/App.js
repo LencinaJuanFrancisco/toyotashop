@@ -1,15 +1,17 @@
 
 
 import {Menu} from './component/Menu'
-import Heraderhero from "./component/HeaderHero";
-import Products from './containers/Products'
+// import Heraderhero from "./component/HeaderHero";
+import ItemListContainer from './component/ItemListContainer'
+
 function App() {
  
   return (
     <div className="App">
       <Menu/>
-      <Heraderhero/>
-      <Products/>
+      {/* <Heraderhero/> */}
+      <ItemListContainer/>
+     
     </div>
   );
 }

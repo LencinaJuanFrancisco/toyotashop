@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-function CradProduct({ product }) {
+function Item({ product }) {
   return (
    
       <Card style={{ width: "18rem" }}>
@@ -20,4 +20,4 @@ function CradProduct({ product }) {
   );
 }
 
-export default CradProduct;
+export default Item;
