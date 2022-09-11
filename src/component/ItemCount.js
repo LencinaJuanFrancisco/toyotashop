@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-const ItemCount = ({stock,initial,onAdd}) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
   const [count, setCount] = useState(initial);
   const [instock, setStock] = useState(stock);
 
   const addProduct = () => {
-    if (count < instock)  setCount(count + 1);
-    
+    if (count < instock) setCount(count + 1);
   };
   const subProduct = () => {
     if (count > 1) {
@@ -15,12 +14,22 @@ const ItemCount = ({stock,initial,onAdd}) => {
   };
   return (
     <>
-      <div>
-        <h3>logo toyota</h3>
-        <h2>en stock:{instock}</h2>
-        <h2>Cantidad {count}</h2>
-        <button onClick={addProduct}>+</button>
-        <button onClick={subProduct}>-</button>
+      <div className="mt-5">
+        <p>en stock:{instock}</p>
+        
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Basic mixed styles example"
+        >
+          <button type="button" class="btn btn-danger " onClick={addProduct}>
+            +
+          </button>
+          <h2 className="px-3  "> {count}</h2>
+          <button type="button" class="btn btn-danger" onClick={subProduct}>
+            -
+          </button>
+        </div>
       </div>
     </>
   );
