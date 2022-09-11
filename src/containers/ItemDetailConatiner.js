@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import ItemDetail from "../component/ItemDetail";
 import getItem from "../utils/getItem";
-
+import Spinner from "../utils/Spinner";
 const ItemDetailContainer = () => {
   const [item, setItem] = useState();
 
@@ -16,6 +16,6 @@ const ItemDetailContainer = () => {
       .catch(err => console.log(err));
   }, [idItem]);
 
-  return( <>{item ? <ItemDetail item={item} /> : <p>cargando item ....</p>}</>);
+  return( <>{item ? <ItemDetail item={item} /> : <Spinner></Spinner>}</>);
 };
 export default ItemDetailContainer;

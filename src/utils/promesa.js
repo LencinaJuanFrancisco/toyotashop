@@ -9,7 +9,7 @@ const promesa = () =>{
             }else{
                 rejet('error en la ejecucion')
             }
-        }, 1000);
+        }, 1500);
     })
 }
 
