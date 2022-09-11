@@ -76,6 +76,7 @@
   }
   .lds-roller div:nth-child(8):after {
     top: 56px;
+    left: 12px;
   }
   
 @keyframes lds-roller {

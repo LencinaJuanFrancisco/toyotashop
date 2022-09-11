@@ -31,10 +31,10 @@ function ItemDetail({ item }) {
           <div className="col">
             <p> Versiones </p>
             <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
+              <div class="accordion-item bg-danger.bg-gradient">
+                <h2 class="accordion-header " id="headingOne">
                   <button
-                    class="accordion-button"
+                    class="accordion-button "
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseOne"

@@ -3,6 +3,7 @@ import React, { useEffect, useState} from "react";
 import ItemList from "../component/ItemList";
 import promesa from "../utils/promesa";
 import { useParams } from "react-router-dom";
+import Spinner from "../utils/Spinner";
 const ItemListContainer = () => {
   const [datos, setDatos] = useState([]);
 
@@ -31,7 +32,11 @@ const ItemListContainer = () => {
   return (
     <>
       <div className="container" >
-      <ItemList product={datos} />
+      <h2 className="mt-3">Lista de Productos </h2>
+      { idCategory ? <h3 className="text-capitalize">{idCategory}</h3>:<></>}
+      {
+        datos.length>0 ? <ItemList product={datos}/> : <Spinner></Spinner>
+      }
       </div>
     </>
   );
