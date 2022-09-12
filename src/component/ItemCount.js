@@ -31,6 +31,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           </button>
         </div>
       </div>
+        <button type="button" class="btn btn-danger mt-3 w-3" >comprar</button>
     </>
   );
 };
