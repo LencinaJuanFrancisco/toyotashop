@@ -9,6 +9,8 @@ const ItemDetailContainer = () => {
 
   const {idItem}= useParams()
     console.log(idItem);
+    
+   
 
   useEffect(() => {
     getItem(idItem)
@@ -16,6 +18,6 @@ const ItemDetailContainer = () => {
       .catch(err => console.log(err));
   }, [idItem]);
 
-  return( <>{item ? <ItemDetail item={item} /> : <Spinner></Spinner>}</>);
+  return( <>{item ? <ItemDetail item={item}/> : <Spinner></Spinner>}</>);
 };
 export default ItemDetailContainer;

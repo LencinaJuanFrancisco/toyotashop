@@ -12,6 +12,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       setCount(count - 1);
     }
   };
+
+
+
   return (
     <>
       <div className="mt-5">
@@ -31,7 +34,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           </button>
         </div>
       </div>
-        <button type="button" class="btn btn-danger mt-3 w-3" >comprar</button>
+        <button type="button" class="btn btn-danger mt-3 w-3" onClick={()=>onAdd(count)} >Agregar al carrito </button>
     </>
   );
 };

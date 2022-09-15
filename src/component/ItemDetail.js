@@ -1,7 +1,19 @@
 import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
 
 function ItemDetail({ item }) {
+
+
+  const [hayProduct,setHayProduct]= useState(false)
+  const onAdd=(count)=>{
+   
+    console.log(`agregaste al ${count} carrito`);
+    if (count >0) setHayProduct(true)
+    
+  }
+ 
   return (
     <>
       <div className="container my-5">
@@ -64,7 +76,7 @@ function ItemDetail({ item }) {
                     data-bs-target="#collapseTwo"
                     aria-expanded="false"
                     aria-controls="collapseTwo"
-                  >
+                  >s
                    { item.versionTitle2}
                   </button>
                 </h2>
@@ -104,7 +116,11 @@ function ItemDetail({ item }) {
                 </div>
               </div>
             </div>
-            <ItemCount initial={1} stock={item.stock}></ItemCount>
+            {
+              hayProduct ? <Link to='/cart'><button className="btn btn-success mt-5"> ir al carrito</button></Link> :
+            <ItemCount initial={1} stock={item.stock} onAdd={onAdd} ></ItemCount>
+             
+            }
           </div>
         </div>
         <div className="row">
