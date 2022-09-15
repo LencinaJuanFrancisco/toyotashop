@@ -1,16 +1,23 @@
-import React from "react";
+import React ,{useContext}from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
+import {CartConext} from '../context/CartContex'
 
 function ItemDetail({ item }) {
 
+  const {addItem} = useContext(CartConext)
 
   const [hayProduct,setHayProduct]= useState(false)
+
+
+
+
   const onAdd=(count)=>{
    
-    console.log(`agregaste al ${count} carrito`);
-    if (count >0) setHayProduct(true)
+    //console.log(`agregaste al ${count} carrito`);
+    addItem(item,count)
+    if (count > 0) setHayProduct(true)
     
   }
  

@@ -25,7 +25,7 @@ function Menu() {
         </li>
         
       </ul>
-      <span className="navbar-brand"><Carrito/></span>
+      <Link to='/cart' className='text-decoration-none'><span className="navbar-brand "><Carrito/></span></Link>
     </div>
   </div>
 </nav>

@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
   const [item, setItem] = useState();
 
   const {idItem}= useParams()
-    console.log(idItem);
+    // console.log(idItem);
     
    
 
