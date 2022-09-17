@@ -21,20 +21,20 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <p>en stock:{instock}</p>
         
         <div
-          class="btn-group"
+          className="btn-group"
           role="group"
           aria-label="Basic mixed styles example"
         >
-          <button type="button" class="btn btn-danger " onClick={addProduct}>
+          <button type="button" className="btn btn-danger " onClick={addProduct}>
             +
           </button>
           <h2 className="px-3  "> {count}</h2>
-          <button type="button" class="btn btn-danger" onClick={subProduct}>
+          <button type="button" className="btn btn-danger" onClick={subProduct}>
             -
           </button>
         </div>
       </div>
-        <button type="button" class="btn btn-danger mt-3 w-3" onClick={()=>onAdd(count)} >Agregar al carrito </button>
+        <button type="button" className="btn btn-danger mt-3 w-3" onClick={()=>onAdd(count)} >Agregar al carrito </button>
     </>
   );
 };

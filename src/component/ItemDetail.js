@@ -49,11 +49,11 @@ function ItemDetail({ item }) {
           </div>
           <div className="col">
             <p> Versiones </p>
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item bg-danger.bg-gradient">
-                <h2 class="accordion-header " id="headingOne">
+            <div className="accordion" id="accordionExample">
+              <div className="accordion-item bg-danger.bg-gradient">
+                <h2 className="accordion-header " id="headingOne">
                   <button
-                    class="accordion-button "
+                    className="accordion-button "
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseOne"
@@ -65,19 +65,19 @@ function ItemDetail({ item }) {
                 </h2>
                 <div
                   id="collapseOne"
-                  class="accordion-collapse collapse show"
+                  className="accordion-collapse collapse show"
                   aria-labelledby="headingOne"
                   data-bs-parent="#accordionExample"
                 >
-                  <div class="accordion-body">
+                  <div className="accordion-body">
                     <p>{item.versionDescription1}</p>
                   </div>
                 </div>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="headingTwo">
                   <button
-                    class="accordion-button collapsed"
+                    className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseTwo"
@@ -89,19 +89,19 @@ function ItemDetail({ item }) {
                 </h2>
                 <div
                   id="collapseTwo"
-                  class="accordion-collapse collapse"
+                  className="accordion-collapse collapse"
                   aria-labelledby="headingTwo"
                   data-bs-parent="#accordionExample"
                 >
-                  <div class="accordion-body">
+                  <div className="accordion-body">
                    {item.versionDescription2}
                   </div>
                 </div>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="headingThree">
                   <button
-                    class="accordion-button collapsed"
+                    className="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseThree"
@@ -113,11 +113,11 @@ function ItemDetail({ item }) {
                 </h2>
                 <div
                   id="collapseThree"
-                  class="accordion-collapse collapse"
+                  className="accordion-collapse collapse"
                   aria-labelledby="headingThree"
                   data-bs-parent="#accordionExample"
                 >
-                  <div class="accordion-body">
+                  <div className="accordion-body">
                   {item.versionDescription3}
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 import React, {createContext } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 export const CartConext = createContext();
@@ -8,18 +9,34 @@ export const CartConext = createContext();
 function CartContextProvider({children}) {
     const [cartList,setCartList]= useState([])
 
-    const isInCart=(id)=>{
-        console.log('id',id);
-        console.log(cartList);
-      return  cartList.item.includes(id)
+    const isInCart=(item)=>{
+      //la primera vez cuando el array esta vacio debo devolver False xq si no da error, xq no puede leer item al estar vacio
+        if(cartList.length === 0 ) return false
+        //la segunda vez que ingresa ya tiene con que comparar por lo tanto si es distinto de cero y el item.id es igual devuelve TRUE
+        if(cartList[0].item.id === item.id) return true;
+        //y por cualquier otra opcion devuel false
+        return false
     }
+    
+   
 
     const addItem =(item,count)=>{  
        
-        console.log('esta en la lista',isInCart(item.id));
-
-        setCartList([...cartList,{item,count}])
+       if (isInCart(item)) {
+         //al ser verdadero sumo la canrtidad que tiene  mas lo que viene 
+              count += cartList[0].count
+              //luego filtro para eliminar el item que esta y guardo el nuevo item con el count actualizado
+              const newList =  cartList.filter(i => i.item.id !== item.id)
+               newList.push({item,count}) 
+              setCartList(newList)
+              
+       }else{
+        // por cualquier opcion de false almacena el item , ya que no existe en el estado 
+         setCartList([...cartList,{item,count}])
         
+       }
+       
+
     }
 
     const removeItem=(itemId)=>{

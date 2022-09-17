@@ -3,7 +3,7 @@ import Item from './Item'
 import Spinner from '../utils/Spinner'
 function ItemList({product}) {
   return (
-    <div class="row row-cols-sm-1 row-cols-md-5 g-4 mt-3 ">
+    <div className="row row-cols-sm-1 row-cols-md-5 g-4 mt-3 ">
       
     {
        product.length >0 ?
