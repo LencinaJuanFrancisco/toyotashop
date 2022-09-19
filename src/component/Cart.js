@@ -1,8 +1,18 @@
 import React, { useContext } from "react";
 import { CartConext } from "../context/CartContex";
 import { Link } from "react-router-dom";
+
 function Cart() {
-  const { cartList, removeItem, clear } = useContext(CartConext);
+  
+  const { cartList, removeItem, clear,totalItem,totalTiket } = useContext(CartConext);
+
+
+
+  // useEffect(()=>{
+
+  // },[cartList])
+
+
   return (
     <div className="container mt-5">
       <h1>CART </h1>
@@ -71,8 +81,8 @@ function Cart() {
               <td></td>
               <td></td>
               <td></td>
-              <td>total Item</td>
-              <td>$ total</td>
+              <td>{totalItem()}</td>
+              <td>{totalTiket()}</td>
             </tfoot>
           </table>
         </div>
