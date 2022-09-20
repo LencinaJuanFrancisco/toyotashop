@@ -1,16 +1,19 @@
 import React, { useContext } from "react";
 import { CartConext } from "../context/CartContex";
 import { Link } from "react-router-dom";
+import ItemCountInCart from "./ItemCountInCart";
+import { useEffect } from "react";
 
 function Cart() {
   
   const { cartList, removeItem, clear,totalItem,totalTiket } = useContext(CartConext);
 
 
+// useEffect(()=>{
+//   totalItem()
+//   totalTiket()
+// },[cartList])
 
-  // useEffect(()=>{
-
-  // },[cartList])
 
 
   return (
@@ -63,7 +66,7 @@ function Cart() {
                   </td>
                   <td>{i.item.bran}</td>
                   <td>{i.item.price}</td>
-                  <td>{i.count}</td>
+                  <td><ItemCountInCart item={i}/></td>
                   <td>{i.item.price * i.count}</td>
                   <td>
                     <button
@@ -81,8 +84,8 @@ function Cart() {
               <td></td>
               <td></td>
               <td></td>
-              <td>{totalItem()}</td>
-              <td>{totalTiket()}</td>
+              <td className="fw-bold text-danger  bg-light">{totalItem()}</td>
+              <td className="fw-bold text-danger  bg-light">{totalTiket()}</td>
             </tfoot>
           </table>
         </div>

@@ -1,4 +1,5 @@
 import React, { createContext } from "react";
+import { useEffect } from "react";
 
 import { useState } from "react";
 
@@ -25,6 +26,12 @@ function CartContextProvider({ children }) {
       return total
     }
   }
+
+useEffect(()=>{
+  totalItem()
+  totalTiket()
+},[cartList])
+
   const isInCart = (item) => {
     //la primera vez cuando el array esta vacio debo devolver False xq si no da error, xq no puede leer item al estar vacio
     if (cartList.length === 0) return false;
