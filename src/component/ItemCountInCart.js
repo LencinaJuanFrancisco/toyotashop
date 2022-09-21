@@ -9,20 +9,27 @@ import  {CartConext}  from "../context/CartContex";
 
 function ItemCountInCart( {item} ) {
 
- const {addItem} = useContext(CartConext)
+   console.log('item.item',item.item);
+   console.log('item.count',item.count); 
+ const {addItemFromCart} = useContext(CartConext)
     
   const [count, setCount] = useState(item.count);
   const [instock, setStock] = useState(item.item.stock);
 
   const add = () => {
-    if (count < instock) setCount(count + 1);
-    addItem(item.item,item.count)
+    if (count < instock){
+
+        setCount(count + 1);
+      addItemFromCart(item.item,count)
+    } 
   };
 
-  const sub = () => {
+  const sub =  () => {
     if (count > 1) {
-      setCount(count - 1);
-      addItem(item.item,item.count)
+    
+        setCount(count - 1);
+    
+        addItemFromCart(item.item,count)
     }
   };
 
@@ -33,11 +40,11 @@ function ItemCountInCart( {item} ) {
       className=""
      
     >
-      <button type="button" className="d-inline btn " onClick={add}>
+      <button type="button" className="d-inline btn " onClick={()=>add()}>
         +
       </button>
-      <h2 className="px-3 d-inline fs-5 "> {count}</h2>
-      <button type="button" className="d-inline btn" onClick={sub}>
+      <h2 className="px-3 d-inline fs-5 "> {item.count}</h2>
+      <button type="button" className="d-inline btn" onClick={()=>sub()}>
         -
       </button>
     </div>
