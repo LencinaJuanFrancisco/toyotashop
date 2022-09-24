@@ -3,19 +3,20 @@ import {Link} from 'react-router-dom'
 function Item({ product }) {
   return (
     <div className="col card-group">
-      <div className="card border-danger">
+      <div className="card position-relative border-0">
+        <span class="badge rounded-pill bg-secondary position-absolute">{product.type}</span>
         <img src={product.imge} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{product.bran}</h5>
-        <span>$ {product.price}</span>
+        {/* <span>$ {product.price}</span> */}
         </div>
         <div className='container justify-content-center'>
        <Link to={`/item/${product.id}` } className="justify-content-center"><button className="btn btn-danger btn-sm mb-1 ">detail</button>  </Link> 
 
         </div>
-        <div className="card-footer">
+        {/* <div className="card-footer">
         <small className="text-muted">stock {product.stock} unidades</small>
-      </div>
+      </div> */}
       </div>
     </div>
   );
