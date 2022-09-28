@@ -1,17 +1,54 @@
 import React, { useContext } from "react";
 import { CartConext } from "../context/CartContex";
 import { Link } from "react-router-dom";
+import db from '../utils/firebaseConfig'
+import { serverTimestamp,doc, setDoc, collection,updateDoc, increment  } from "firebase/firestore";
+import InputBuyerOrder from "../utils/alertes/InputBuyerOrder";
+import OrderOk from "../utils/alertes/OrderOk";
 
 function Cart() {
+  const { cartList, removeItem, clear, totalItem, totalTiket } = useContext(
+    CartConext
+  );
+
+  const createOrder = async () => {
+    const buyer = await InputBuyerOrder()
+    console.log(buyer);
+    
+      const item = cartList.map((i) => ({
+        id: i.item.id,
+        title: i.item.bran,
+        price: i.item.price,
+        quantity: i.count,
+      }));
   
-  const { cartList, removeItem, clear,totalItem,totalTiket } = useContext(CartConext);
+      let newOrden = {
+        id: 1,
+        buyer: {
+          name: buyer[0].name ,
+          cel:  buyer[0].cel ,
+          email: buyer[0].email,
+        },
+        items: item,
+        date: serverTimestamp(),
+        total: totalTiket(),
+      };
+      console.log('newOrder ---->', newOrden );
+      const newOrderRef=doc(collection(db,'orders'))
+      OrderOk(newOrderRef.id)
+      await setDoc(newOrderRef,newOrden)
+      clear()
+  
+      item.map(async(i)=>{
+        const itemRef= doc(db,'products',i.id)
+        const rta=  await updateDoc(itemRef, {
+        stock: increment(-i.quantity)// firebase no te deja hacer una reste comun y agregarle a la variable
+      })
+      console.log(rta);
+    })
+    
 
-
-
-  // useEffect(()=>{
-
-  // },[cartList])
-
+  }
 
   return (
     <div className="container mt-5">
@@ -25,7 +62,7 @@ function Cart() {
           <></>
         )}
         <Link to="/" className="text-decoration-none mx-2">
-          <button className="btn btn-outline-danger">
+          <button className="btn btn-outline-danger my-3">
             {cartList.length > 0 ? (
               <span>Seguir comprando</span>
             ) : (
@@ -35,7 +72,7 @@ function Cart() {
         </Link>
       </div>
       {cartList.length > 0 ? (
-        <div className="table-responsive mt-5">
+        <div className="table-responsive mt-3">
           <table className="table table-light table-hover align-middle caption-top">
             <caption>Lista de productos</caption>
             <thead>
@@ -88,6 +125,18 @@ function Cart() {
         </div>
       ) : (
         <h2>Carrito Vacio</h2>
+      )}
+      {cartList.length > 0 ? (
+        <div className="container mt-5">
+          <button
+            className="btn btn-outline-dark"
+            onClick={() => createOrder()}
+          >
+            ORDEN CHECK NOW
+          </button>
+        </div>
+      ) : (
+        <></>
       )}
     </div>
   );

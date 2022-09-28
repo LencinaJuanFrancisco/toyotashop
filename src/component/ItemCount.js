@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from "react";
+import OnAddOk from '../utils/alertes/OnAddOk';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [count, setCount] = useState(initial);
@@ -13,7 +14,10 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       setCount(count - 1);
     }
   };
-
+  const handelClic=()=>{
+    onAdd(count)
+    OnAddOk()
+  }
 
 
   return (
@@ -35,7 +39,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           </button>
         </div>
       </div>
-        <button type="button" className="btn btn-danger mt-3 w-3" onClick={()=>onAdd(count)} >Agregar al carrito </button>
+        <button type="button" className="btn btn-danger mt-3 w-3" onClick={()=>handelClic()} >Agregar al carrito </button>
     </>
   );
 };
