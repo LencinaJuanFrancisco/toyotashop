@@ -1,11 +1,22 @@
-import React from "react";
+
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
-async function  OnAddOk() {
-    console.log('entre en OnAddOh');
+
+ function  OnAddOk(error) {
+
+  if (error.error) {
+      MySwal.fire({
+        position: "top-end",
+        icon: "error",
+        title:`${error.message}`,
+        showConfirmButton: false,
+        timer: 5000,
+      })
+    
+  }else{
     const Toast = MySwal.mixin({
         toast: true,
         position: 'top-end',
@@ -20,16 +31,11 @@ async function  OnAddOk() {
       
       Toast.fire({
         icon: 'success',
-        title: 'Producto Agregado'
+        title: `${error.message}`
       })
+
+  }
   
-    //   MySwal.fire({
-    //     position: "top-end",
-    //     icon: "success",
-    //     title:`producto agregado`,
-    //     showConfirmButton: false,
-    //     timer: 1500,
-    //   })
 
 
 }

@@ -7,7 +7,7 @@ function Item({ product }) {
         <img src={product.imge} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{product.bran}</h5>
-        <span class="badge rounded-pill bg-secondary ">{product.type}</span>
+        <span className="badge rounded-pill bg-secondary ">{product.type}</span>
         {/* <span>$ {product.price}</span> */}
         </div>
         <div className='container justify-content-center'>

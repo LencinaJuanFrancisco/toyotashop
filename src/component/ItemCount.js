@@ -1,10 +1,14 @@
 import React from 'react';
 import { useState } from "react";
-import OnAddOk from '../utils/alertes/OnAddOk';
+// import OnAddOk from '../utils/alertes/OnAddOk';
+// import { CartConext } from "../context/CartContex";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
+
   const [count, setCount] = useState(initial);
   const [instock, setStock] = useState(stock);
+
+  // const {errorStock} = useContext(CartConext)
 
   const addProduct = () => {
     if (count < instock) setCount(count + 1);
@@ -16,14 +20,15 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
   const handelClic=()=>{
     onAdd(count)
-    OnAddOk()
+    // OnAddOk(errorStock)
+   
   }
 
 
   return (
     <>
       <div className="mt-5">
-        <p>en stock:{instock}</p>
+        <p>en stock: {instock}</p>
         
         <div
           className="btn-group"

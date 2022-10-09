@@ -11,9 +11,9 @@ export function Carrito(){
            {/* <div className='conatinerCantidad'> */}
            
             <div className='m-3 '>
-                <button type="button" class="btn btn-secondary position-relative">
+                <button type="button" className="btn btn-secondary position-relative">
                                        <FaShoppingCart/>
-                        {totalItem()>0 ? <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {totalItem()>0 ? <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {totalItem() } </span> :<></>}
                 
           
