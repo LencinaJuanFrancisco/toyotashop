@@ -67,15 +67,16 @@ function CartContextProvider({ children }) {
         });
         console.log('seterrorstock en dis < 0 ',errorStock);
         // OnAddOk(errorStock);
-      } else if(dis === 0){
-        let quantityAvailable = item.stock - cartList[0].count;
-        setErrorStock({
-          error: true,
-          message: `la cantidad solicitada excede el el stock permitido, no puede agragar mas cantidad al carrito`,
-          dis: quantityAvailable,
-        });
-      //   OnAddOk(errorStock);
-      }else{
+      // } else if(dis === 0){
+      //   let quantityAvailable = item.stock - cartList[0].count;
+      //   setErrorStock({
+      //     error: true,
+      //     message: `la cantidad solicitada excede el el stock permitido, no puede agragar mas cantidad al carrito`,
+      //     dis: quantityAvailable,
+      //   });
+      // //   OnAddOk(errorStock);
+       }
+      else{
        setErrorStock({ error: false, message: `Producto Agregado `, dis: 0 });
         const newList = cartList.filter((i) => i.item.id !== item.id);
         newList.push({ item, count });
