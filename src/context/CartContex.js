@@ -38,19 +38,25 @@ function CartContextProvider({ children }) {
       return total;
     }
   };
+  // const isInCart = (item) => {
+  //   //la primera vez cuando el array esta vacio debo devolver False xq si no da error, xq no puede leer item al estar vacio
+  //   if (cartList.length === 0) return false;
+  //   //la segunda vez que ingresa ya tiene con que comparar por lo tanto si es distinto de cero y el item.id es igual devuelve TRUE
+  //   if (cartList[0].item.id === item.id) return true;
+  //   //y por cualquier otra opcion devuel false
+  //   return false;
+  // };
   const isInCart = (item) => {
-    //la primera vez cuando el array esta vacio debo devolver False xq si no da error, xq no puede leer item al estar vacio
-    if (cartList.length === 0) return false;
-    //la segunda vez que ingresa ya tiene con que comparar por lo tanto si es distinto de cero y el item.id es igual devuelve TRUE
-    if (cartList[0].item.id === item.id) return true;
-    //y por cualquier otra opcion devuel false
-    return false;
-  };
+    return cartList.some((i) => i.item.id == item.id);
+  }
+
 
   const addItem = (item, count) => {
     // let dis = 0;
     // setErrorStock({ error: false, message: ` `, dis: 0 });
+    console.log('LOG DE ITEM ',item);
 
+    console.log('is in Cart???? ',isInCart(item) );
     if (isInCart(item)) {
       //al ser verdadero sumo la canrtidad que tiene  mas lo que viene
       count += cartList[0].count;
@@ -78,7 +84,8 @@ function CartContextProvider({ children }) {
        }
       else{
        setErrorStock({ error: false, message: `Producto Agregado `, dis: 0 });
-        const newList = cartList.filter((i) => i.item.id !== item.id);
+       
+       const newList = cartList.filter((i) => i.item.id !== item.id);
         newList.push({ item, count });
         setCartList(newList);
         // OnAddOk(errorStock);
