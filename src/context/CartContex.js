@@ -66,22 +66,15 @@ function CartContextProvider({ children }) {
           dis: quantityAvailable,
         });
         console.log('seterrorstock en dis < 0 ',errorStock);
-        // OnAddOk(errorStock);
-      // } else if(dis === 0){
-      //   let quantityAvailable = item.stock - cartList[0].count;
-      //   setErrorStock({
-      //     error: true,
-      //     message: `la cantidad solicitada excede el el stock permitido, no puede agragar mas cantidad al carrito`,
-      //     dis: quantityAvailable,
-      //   });
-      // //   OnAddOk(errorStock);
+     
        }
       else{
        setErrorStock({ error: false, message: `Producto Agregado `, dis: 0 });
         const newList = cartList.filter((i) => i.item.id !== item.id);
-        newList.push({ item, count });
-        setCartList(newList);
-        // OnAddOk(errorStock);
+        // newList.push({ item, count });
+        
+        setCartList([...newList,{item,count}]);
+        
       }
         
       
@@ -90,7 +83,7 @@ function CartContextProvider({ children }) {
        setErrorStock({error:false,message:'Producto Agregado'})
       // por cualquier opcion de false almacena el item , ya que no existe en el estado
       setCartList([...cartList, { item, count }]);
-      // OnAddOk(errorStock);
+     
     }
   };
 
