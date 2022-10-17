@@ -76,19 +76,11 @@ function CartContextProvider({ children }) {
        }
       else{
        setErrorStock({ error: false, message: `Producto Agregado `, dis: 0 });
-<<<<<<< HEAD
-        const newList = cartList.filter((i) => i.item.id !== item.id);
-        // newList.push({ item, count });
-        
-        setCartList([...newList,{item,count}]);
-        
-=======
        
        const newList = cartList.filter((i) => i.item.id !== item.id);
-        newList.push({ item, count });
-        setCartList(newList);
+        // newList.push({ item, count });
+        setCartList([...newList,{item,count}]);
         // OnAddOk(errorStock);
->>>>>>> conema
       }
         
       
